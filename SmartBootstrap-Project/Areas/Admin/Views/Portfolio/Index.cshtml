@@ -1,0 +1,62 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Portfolio</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th> Image </th>
+                                        <th> Name </th>
+                                        <th> Content </th>
+                                        <th> Setting </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Portfolio)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <img src="~/assets/img/@item.Image" alt="image" />
+                                            </td>
+                                            <td> @item.Name </td>
+                                            <td> @item.Information </td>
+                                            <td>
+                                                <a asp-action="Update" asp-route-id="@item.Id">
+                                                    <label class="btn btn-warning">
+                                                        <i class="mdi mdi-table-edit"></i>
+                                                    </label>
+                                                </a>
+
+                                                <form method="post" asp-route-id="@item.Id" asp-action="Delete" class="d-inline">
+                                                    <button type="submit" class="btn btn-danger mb-2 ml-2">
+                                                    <i class="mdi mdi-delete"></i>
+                                                    </button>
+                                                </form>
+                                                
+                                            </td>
+                                        </tr>
+                                    }
+                                <a asp-area="Admin" asp-controller="Portfolio" asp-action="Create"><label class="btn btn-success">Create Portfolio</label></a>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    @await Component.InvokeAsync("AdminFooter") 
+    <!-- partial -->
+</div>
+

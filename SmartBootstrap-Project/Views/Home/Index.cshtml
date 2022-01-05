@@ -1,0 +1,177 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <section id="intro" style="background-color: teal; height: 750px;" class="mb-5">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-12 mt-5 d-flex justify-content-center">
+                    <div class="person mt-5 ">
+                        <img src="https://startbootstrap.github.io/startbootstrap-freelancer/assets/img/avataaars.svg"
+                             style="height: 250px;" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-4 d-flex justify-content-center">
+                    <div class="introHead d-flex justify-content-center">
+                        <h1>START BOOTSTRAP</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mt-4 d-flex justify-content-center">
+                    <div class="line mt-3 mr-3"></div>
+                    <i class="fas fa-star awStar"></i>
+                    <div class="line mt-3 ml-3"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mt-4 d-flex justify-content-center">
+                    <div class="position">
+                        <p>Graphic Artist - Web Designer - Illustrator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="portfolioHead mt-5 d-flex justify-content-center">
+                        <h1>PORTFOLIO</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mt-3 d-flex justify-content-center">
+                    <div class="lineMain mt-3 mr-3"></div>
+                    <i class="fas fa-star awStarMain"></i>
+                    <div class="lineMain mt-3 ml-3"></div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                @foreach (var item in Model.Portfolio)
+                {
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card mb-4">
+                            <div class="card overlay text-white text-center d-flex align-items-center justify-content-center">
+                                <div class="button"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <img class="card-img-top"
+                                 src="~/assets/img/@item.Image"
+                                 data-toggle="modal" data-target="#exampleModal-@item.Id" alt="Card image cap">
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal-@item.Id" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header d-flex justify-content-center modalCon">
+                                        <h1>@item.Name</h1>
+                                        <div class="star d-flex justify-content-center my-3">
+                                            <div class="lineMain m-3"></div>
+                                            <i class="fas fa-star awStarMain "></i>
+                                            <div class="lineMain m-3"></div>
+                                        </div>
+                                        <img class="card-img-top mb-5 "
+                                             src="~/assets/img/@item.Image"
+                                             alt="Card image cap">
+                                        <div class="content mb-3">
+                                            <p>
+                                               @item.Information
+                                            </p>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary modalButton" data-dismiss="modal">
+                                            <i class="fas fa-times"></i> Close Window
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+    </section>
+
+    <section id="about" style="background-color: teal; height:100%; min-height: 600px;" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="mt-4 d-flex justify-content-center">ABOUT</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mt-4 d-flex justify-content-center">
+                    <div class="line mt-3 mr-3"></div>
+                    <i class="fas fa-star awStar"></i>
+                    <div class="line mt-3 ml-3"></div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="left">
+                        Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="right">
+                        You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center mt-4">
+                    <button type="button" class="btn btn-success download mb-5">
+                        <div class="text">
+                            <i class="fas fa-download"></i> Free Donwload!
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <h1>CONTACT ME</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mt-4 d-flex justify-content-center">
+                    <div class="lineMain mt-3 mr-3"></div>
+                    <i class="fas fa-star awStarMain"></i>
+                    <div class="lineMain mt-3 ml-3"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mt-5">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="exampleInputNumber1" placeholder="Number">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleInputMessage1" placeholder="Message">
+                        </div>
+                        <button type="submit" class="btn btn-primary downloadButton">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
